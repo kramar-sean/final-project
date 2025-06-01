@@ -19,7 +19,12 @@
     @media print {
   .pdf-button, .disclaimer { display: none !important; }
   input[type="number"], input[type="text"], textarea { border: none; background: none; }
-  canvas { width: 100% !important; height: auto !important; }
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    page-break-inside: avoid;
+  }
 }
   </style>
 </head>
@@ -134,13 +139,14 @@ function updateChart() {
       ]
     },
     options: {
-      responsive: true,
-      plugins: { legend: { position: 'top' } },
-      scales: {
-        y: { beginAtZero: true, title: { display: true, text: 'Net Worth ($)' } },
-        x: { title: { display: true, text: 'Time Horizon' } }
-      }
-    }
+  responsive: true,
+  maintainAspectRatio: true,
+  plugins: { legend: { position: 'top' } },
+  scales: {
+    y: { beginAtZero: true, title: { display: true, text: 'Net Worth ($)' } },
+    x: { title: { display: true, text: 'Time Horizon' } }
+  }
+}
   });
 }
 window.onload = updateChart;
