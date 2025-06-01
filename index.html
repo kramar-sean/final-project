@@ -20,11 +20,12 @@
   .pdf-button, .disclaimer { display: none !important; }
   input[type="number"], input[type="text"], textarea { border: none; background: none; }
   canvas {
-    max-width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    page-break-inside: avoid;
-  }
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  display: block;
+  page-break-inside: avoid;
+}
 }
   </style>
 </head>
@@ -91,7 +92,7 @@
   <input type="number" id="aggressive10" placeholder="0" oninput="updateChart()">
 </div>
 
-<canvas id="projectionChart" width="900" height="400"></canvas>
+<canvas id="projectionChart"></canvas>
 
 <div class="pdf-button">
   <button onclick="window.print()">Print / Save as PDF</button>
